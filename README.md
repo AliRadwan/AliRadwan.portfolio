@@ -18,8 +18,9 @@ I have 5 years of experience in building mobile applications, specializing in **
 | Job Title                         | Company                               | Duration          |
 | ---------------------------------- | ------------------------------------- | ----------------- |
 | **Mobile Application Developer**   | Saudi Authority for Data & AI (SDAIA) | 2022 - Present    |
-| **Flutter Developer**              | XYZ Solutions                         | 2019 - 2022       |
-| **Android Developer**              | ABC Technologies                      | 2017 - 2019       |
+| **Flutter Developer**              | FutureTech                            | 2020 - 2022       |
+| **Flutter Developer**              | Tekamy                                | 2019 - 2020       |
+| **Android Developer**              | aait                                  | 2018 - 2019       |
 
 ---
 
