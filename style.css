@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Radwan - Mobile Developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Ali Radwan</h1>
+        <p>Mobile Application Developer specializing in Flutter and Android Native development.</p>
+    </header>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Dart, Java, Kotlin</li>
+            <li>Flutter, Android Native</li>
+            <li>Firebase, SQLite, RESTful APIs</li>
+            <li>Git, GitHub</li>
+            <li>Scrum, Kanban</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div>
+            <h3>Mobile Application Developer, SDAIA</h3>
+            <p>Riyadh, Saudi Arabia — 2022 - Present</p>
+            <ul>
+                <li>Developed Deem Mail, enhancing performance and UI/UX.</li>
+                <li>Revamped MailActionView UI, improving user navigation.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:aliradwan7789@gmail.com">aliradwan7789@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/ali-radwan-%F0%9F%87%B5%F0%9F%87%B8-19731086/">Ali Radwan</a></p>
+    </footer>
+</body>
+</html>
