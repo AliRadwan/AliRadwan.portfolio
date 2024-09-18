@@ -1,44 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Radwan - Mobile Developer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Ali Radwan</h1>
-        <p>Mobile Application Developer specializing in Flutter and Android Native development.</p>
-    </header>
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Dart, Java, Kotlin</li>
-            <li>Flutter, Android Native</li>
-            <li>Firebase, SQLite, RESTful APIs</li>
-            <li>Git, GitHub</li>
-            <li>Scrum, Kanban</li>
-        </ul>
-    </section>
+h1, h2, h3 {
+    color: #35424a;
+}
 
-    <section id="experience">
-        <h2>Work Experience</h2>
-        <div>
-            <h3>Mobile Application Developer, SDAIA</h3>
-            <p>Riyadh, Saudi Arabia — 2022 - Present</p>
-            <ul>
-                <li>Developed Deem Mail, enhancing performance and UI/UX.</li>
-                <li>Revamped MailActionView UI, improving user navigation.</li>
-            </ul>
-        </div>
-    </section>
+p, ul {
+    line-height: 1.6;
+}
 
-    <footer>
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:aliradwan7789@gmail.com">aliradwan7789@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/ali-radwan-%F0%9F%87%B5%F0%9F%87%B8-19731086/">Ali Radwan</a></p>
-    </footer>
-</body>
-</html>
+/* Header */
+.header {
+    background-color: #35424a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.header p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+/* Sections */
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #ff6f61;
+    border-bottom: 2px solid #ff6f61;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* Job Experience */
+.job {
+    margin-bottom: 20px;
+}
+
+.job h3 {
+    color: #333;
+}
+
+.job ul {
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+/* Projects */
+.projects ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.projects a {
+    color: #ff6f61;
+    text-decoration: none;
+}
+
+.projects a:hover {
+    text-decoration: underline;
+}
+
+/* Contact */
+.contact a {
+    color: #35424a;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #35424a;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
