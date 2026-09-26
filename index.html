@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,25 +15,22 @@
   <meta property="og:image" content="https://aliradwan.github.io/AliRadwan.portfolio/images/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <meta name="theme-color" content="#0e0f12" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#140b00">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
   <script>
-    // Apply the saved/system theme before first paint to avoid a flash.
-    (function () {
-      var d = document.documentElement, t;
-      try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-      d.dataset.theme = t;
+    // Enable JS-only motion states. If main.js never boots (blocked, offline),
+    // drop them again so nothing stays hidden.
+    (function (d) {
       d.classList.add('js');
-    })();
+      setTimeout(function () { if (!window.__app) d.classList.remove('js'); }, 2500);
+    })(document.documentElement);
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-  <link rel="preload" as="image" href="images/profile-400.webp" imagesrcset="images/profile-400.webp 400w, images/profile-800.webp 800w" imagesizes="(min-width: 900px) 360px, 240px">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+  <link rel="preload" as="image" href="images/profile-800.webp" type="image/webp">
   <link rel="stylesheet" href="css/style.css">
   <script type="module" src="js/main.js"></script>
 </head>
@@ -42,7 +39,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#top" aria-label="Ali Radwan — home">AR<span>.</span></a>
+      <a class="logo" href="#top" aria-label="Ali Radwan — home">AR</a>
 
       <nav class="nav" id="nav" aria-label="Primary">
         <ul>
@@ -51,15 +48,11 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle color theme">
-          <svg class="icon icon-sun" aria-hidden="true"><use href="images/icons.svg#sun"/></svg>
-          <svg class="icon icon-moon" aria-hidden="true"><use href="images/icons.svg#moon"/></svg>
-        </button>
+        <a class="btn btn-amber btn-sm header-cta" href="#contact">Let's talk</a>
         <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Open menu">
           <svg class="icon icon-menu" aria-hidden="true"><use href="images/icons.svg#menu"/></svg>
           <svg class="icon icon-close" aria-hidden="true"><use href="images/icons.svg#close"/></svg>
@@ -73,47 +66,119 @@
     <section class="hero" id="top">
       <div class="container hero-inner">
         <div class="hero-text">
-          <p class="eyebrow"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#pin"/></svg> Riyadh, Saudi Arabia · Open to opportunities</p>
-          <h1>Hi, I'm Ali Radwan.<br><span class="accent">Senior Flutter Developer.</span></h1>
-          <p class="lead">I build secure, high-performance Android &amp; iOS apps for enterprise organizations — from architecture to App Store release.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#contact">Get in touch <svg class="icon" aria-hidden="true"><use href="images/icons.svg#arrow"/></svg></a>
-            <a class="btn btn-ghost" href="#projects">View projects</a>
+          <p class="status" data-intro><span class="status-dot" aria-hidden="true"></span> Available for new opportunities</p>
+          <h1 class="hero-title">
+            <span class="line"><span>Ali Radwan,</span></span>
+            <span class="line"><span>Senior Flutter</span></span>
+            <span class="line"><span class="amber">Developer.</span></span>
+          </h1>
+          <p class="hero-sub" data-intro>I build secure, high-performance Android &amp; iOS apps for enterprise organizations — from architecture to App Store release.</p>
+          <div class="cta-row" data-intro>
+            <a class="btn btn-amber" href="#contact">Get in touch</a>
+            <a class="btn btn-outline" href="#projects">View work</a>
+            <a class="arrow-circle" href="#about" aria-label="Scroll to About"><svg aria-hidden="true"><use href="images/icons.svg#arrow-ne"/></svg></a>
           </div>
-          <ul class="social" aria-label="Profiles">
-            <li><a href="https://github.com/AliRadwan" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg></a></li>
-            <li><a href="https://gitlab.com/AliRadwan" target="_blank" rel="noopener noreferrer" aria-label="GitLab"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#gitlab"/></svg></a></li>
-            <li><a href="https://www.linkedin.com/in/alimohamedradwan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg></a></li>
-            <li><a href="mailto:aliradwan7789@gmail.com" aria-label="Email"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#mail"/></svg></a></li>
-          </ul>
         </div>
 
-        <div class="hero-photo">
+        <figure class="hero-photo">
           <picture>
-            <source type="image/webp" srcset="images/profile-400.webp 400w, images/profile-800.webp 800w" sizes="(min-width: 900px) 360px, 240px">
+            <source type="image/webp" srcset="images/profile-400.webp 400w, images/profile-800.webp 800w" sizes="(min-width: 900px) 440px, 90vw">
             <img src="images/profile-800.jpg" alt="Portrait of Ali Radwan" width="800" height="800" fetchpriority="high" decoding="async">
           </picture>
-        </div>
+          <figcaption>
+            <svg class="icon" aria-hidden="true"><use href="images/icons.svg#pin"/></svg>
+            Riyadh, Saudi Arabia
+          </figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- About -->
     <section class="section" id="about" aria-labelledby="about-title">
-      <div class="container">
-        <header class="section-head" data-reveal>
-          <p class="kicker">01 — About</p>
-          <h2 id="about-title">Engineering apps people rely on</h2>
-        </header>
-        <div class="about-grid">
+      <div class="container about-grid">
+        <div>
+          <p class="kicker" data-reveal>About</p>
+          <h2 class="section-title" id="about-title" data-split>Engineering apps people rely on, every day.</h2>
           <div class="prose" data-reveal>
             <p>Senior Flutter Developer with <strong>6+ years</strong> of experience building secure, high-performance Android and iOS applications for enterprise organizations, including <strong>NHC</strong> and <strong>SDAIA</strong>.</p>
             <p>Strong expertise in Clean Architecture, Riverpod / Bloc, RESTful APIs and performance optimization, with full ownership of production releases. I work closely with backend, QA and security teams to ship stable, scalable solutions — and to find and fix critical vulnerabilities before they reach users.</p>
           </div>
-          <dl class="stats" data-reveal>
-            <div><dt>Years of experience</dt><dd>6+</dd></div>
-            <div><dt>Companies</dt><dd>5</dd></div>
-            <div><dt>Apps shipped</dt><dd>10+</dd></div>
-            <div><dt>Platforms</dt><dd>iOS&nbsp;+&nbsp;Android</dd></div>
+        </div>
+
+        <div class="dial-wrap" data-reveal>
+          <div class="dial" id="dial">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <g class="dial-dots">
+                <circle class="yr" cx="100.00" cy="16.00" r="3.2" style="--i:0"/>
+                <circle cx="108.78" cy="16.46" r="2.1" style="--i:1"/>
+                <circle cx="117.46" cy="17.84" r="2.1" style="--i:2"/>
+                <circle cx="125.96" cy="20.11" r="2.1" style="--i:3"/>
+                <circle cx="134.17" cy="23.26" r="2.1" style="--i:4"/>
+                <circle cx="142.00" cy="27.25" r="2.1" style="--i:5"/>
+                <circle cx="149.37" cy="32.04" r="2.1" style="--i:6"/>
+                <circle cx="156.21" cy="37.58" r="2.1" style="--i:7"/>
+                <circle cx="162.42" cy="43.79" r="2.1" style="--i:8"/>
+                <circle cx="167.96" cy="50.63" r="2.1" style="--i:9"/>
+                <circle class="yr" cx="172.75" cy="58.00" r="3.2" style="--i:10"/>
+                <circle cx="176.74" cy="65.83" r="2.1" style="--i:11"/>
+                <circle cx="179.89" cy="74.04" r="2.1" style="--i:12"/>
+                <circle cx="182.16" cy="82.54" r="2.1" style="--i:13"/>
+                <circle cx="183.54" cy="91.22" r="2.1" style="--i:14"/>
+                <circle cx="184.00" cy="100.00" r="2.1" style="--i:15"/>
+                <circle cx="183.54" cy="108.78" r="2.1" style="--i:16"/>
+                <circle cx="182.16" cy="117.46" r="2.1" style="--i:17"/>
+                <circle cx="179.89" cy="125.96" r="2.1" style="--i:18"/>
+                <circle cx="176.74" cy="134.17" r="2.1" style="--i:19"/>
+                <circle class="yr" cx="172.75" cy="142.00" r="3.2" style="--i:20"/>
+                <circle cx="167.96" cy="149.37" r="2.1" style="--i:21"/>
+                <circle cx="162.42" cy="156.21" r="2.1" style="--i:22"/>
+                <circle cx="156.21" cy="162.42" r="2.1" style="--i:23"/>
+                <circle cx="149.37" cy="167.96" r="2.1" style="--i:24"/>
+                <circle cx="142.00" cy="172.75" r="2.1" style="--i:25"/>
+                <circle cx="134.17" cy="176.74" r="2.1" style="--i:26"/>
+                <circle cx="125.96" cy="179.89" r="2.1" style="--i:27"/>
+                <circle cx="117.46" cy="182.16" r="2.1" style="--i:28"/>
+                <circle cx="108.78" cy="183.54" r="2.1" style="--i:29"/>
+                <circle class="yr" cx="100.00" cy="184.00" r="3.2" style="--i:30"/>
+                <circle cx="91.22" cy="183.54" r="2.1" style="--i:31"/>
+                <circle cx="82.54" cy="182.16" r="2.1" style="--i:32"/>
+                <circle cx="74.04" cy="179.89" r="2.1" style="--i:33"/>
+                <circle cx="65.83" cy="176.74" r="2.1" style="--i:34"/>
+                <circle cx="58.00" cy="172.75" r="2.1" style="--i:35"/>
+                <circle cx="50.63" cy="167.96" r="2.1" style="--i:36"/>
+                <circle cx="43.79" cy="162.42" r="2.1" style="--i:37"/>
+                <circle cx="37.58" cy="156.21" r="2.1" style="--i:38"/>
+                <circle cx="32.04" cy="149.37" r="2.1" style="--i:39"/>
+                <circle class="yr" cx="27.25" cy="142.00" r="3.2" style="--i:40"/>
+                <circle cx="23.26" cy="134.17" r="2.1" style="--i:41"/>
+                <circle cx="20.11" cy="125.96" r="2.1" style="--i:42"/>
+                <circle cx="17.84" cy="117.46" r="2.1" style="--i:43"/>
+                <circle cx="16.46" cy="108.78" r="2.1" style="--i:44"/>
+                <circle cx="16.00" cy="100.00" r="2.1" style="--i:45"/>
+                <circle cx="16.46" cy="91.22" r="2.1" style="--i:46"/>
+                <circle cx="17.84" cy="82.54" r="2.1" style="--i:47"/>
+                <circle cx="20.11" cy="74.04" r="2.1" style="--i:48"/>
+                <circle cx="23.26" cy="65.83" r="2.1" style="--i:49"/>
+                <circle class="yr" cx="27.25" cy="58.00" r="3.2" style="--i:50"/>
+                <circle cx="32.04" cy="50.63" r="2.1" style="--i:51"/>
+                <circle cx="37.58" cy="43.79" r="2.1" style="--i:52"/>
+                <circle cx="43.79" cy="37.58" r="2.1" style="--i:53"/>
+                <circle cx="50.63" cy="32.04" r="2.1" style="--i:54"/>
+                <circle cx="58.00" cy="27.25" r="2.1" style="--i:55"/>
+                <circle cx="65.83" cy="23.26" r="2.1" style="--i:56"/>
+                <circle cx="74.04" cy="20.11" r="2.1" style="--i:57"/>
+                <circle cx="82.54" cy="17.84" r="2.1" style="--i:58"/>
+                <circle cx="91.22" cy="16.46" r="2.1" style="--i:59"/>
+              </g>
+              <line class="dial-hand" x1="100" y1="16" x2="100" y2="56"/>
+              <circle class="dial-pivot" cx="100" cy="56" r="2.5"/>
+            </svg>
+            <p class="dial-readout"><span class="dial-num" data-count="6" data-suffix="+">6+</span><span class="dial-label">Years shipping mobile apps</span></p>
+          </div>
+          <dl class="stats">
+            <div><dt>Companies</dt><dd data-count="5">5</dd></div>
+            <div><dt>Apps shipped</dt><dd data-count="10" data-suffix="+">10+</dd></div>
+            <div><dt>Platforms</dt><dd class="dd-text">iOS + Android</dd></div>
           </dl>
         </div>
       </div>
@@ -122,16 +187,16 @@
     <!-- Experience -->
     <section class="section" id="experience" aria-labelledby="exp-title">
       <div class="container">
-        <header class="section-head" data-reveal>
-          <p class="kicker">02 — Experience</p>
-          <h2 id="exp-title">Where I've worked</h2>
+        <header class="section-head">
+          <p class="kicker" data-reveal>Experience</p>
+          <h2 class="section-title" id="exp-title" data-split>Where I've worked</h2>
         </header>
 
         <ol class="timeline">
           <li class="timeline-item" data-reveal>
             <div class="timeline-meta"><time>2024 — Present</time><span>Riyadh, KSA</span></div>
-            <div class="card">
-              <h3>Senior Flutter Developer <span class="at">@ <a href="https://nhc.sa/en/" target="_blank" rel="noopener noreferrer">National Housing Company (NHC)</a></span></h3>
+            <div class="timeline-body">
+              <h3>Senior Flutter Developer <span class="at">· <a href="https://nhc.sa/en/" target="_blank" rel="noopener noreferrer">National Housing Company (NHC)</a></span></h3>
               <ul class="bullets">
                 <li>Own end-to-end delivery of the <strong>Ahal</strong> and <strong>Technician</strong> apps, shipping 4+ production releases and improving overall stability.</li>
                 <li>Designed feature modules for visitor management, maintenance requests, virtual identity and event registration using Clean Architecture.</li>
@@ -143,8 +208,8 @@
 
           <li class="timeline-item" data-reveal>
             <div class="timeline-meta"><time>2022 — 2024</time><span>Riyadh, KSA</span></div>
-            <div class="card">
-              <h3>Senior Flutter Developer <span class="at">@ Saudi Data &amp; AI Authority (SDAIA)</span></h3>
+            <div class="timeline-body">
+              <h3>Senior Flutter Developer <span class="at">· Saudi Data &amp; AI Authority (SDAIA)</span></h3>
               <ul class="bullets">
                 <li>Built and maintained <strong>Deem Mail</strong>, an enterprise-grade mail client for Android and iOS.</li>
                 <li>Implemented scalable state management with Riverpod and Bloc in a modular architecture.</li>
@@ -156,8 +221,8 @@
 
           <li class="timeline-item" data-reveal>
             <div class="timeline-meta"><time>2020 — 2022</time><span>Remote</span></div>
-            <div class="card">
-              <h3>Flutter Developer <span class="at">@ FutureTech</span></h3>
+            <div class="timeline-body">
+              <h3>Flutter Developer <span class="at">· FutureTech</span></h3>
               <ul class="bullets">
                 <li>Developed a cross-platform messaging app with PDF generation and dashboard charts.</li>
               </ul>
@@ -166,8 +231,8 @@
 
           <li class="timeline-item" data-reveal>
             <div class="timeline-meta"><time>2019 — 2020</time><span>Remote</span></div>
-            <div class="card">
-              <h3>Flutter Developer <span class="at">@ Tekamy</span></h3>
+            <div class="timeline-body">
+              <h3>Flutter Developer <span class="at">· Tekamy</span></h3>
               <ul class="bullets">
                 <li>Built iOS and Android apps focused on performance and UI responsiveness for complex screens, using GetX.</li>
               </ul>
@@ -176,8 +241,8 @@
 
           <li class="timeline-item" data-reveal>
             <div class="timeline-meta"><time>2018 — 2019</time><span>Mansoura, Egypt</span></div>
-            <div class="card">
-              <h3>Mobile App Developer <span class="at">@ Aait</span></h3>
+            <div class="timeline-body">
+              <h3>Mobile App Developer <span class="at">· Aait</span></h3>
               <ul class="bullets">
                 <li>Started in native Android (Java), then moved to Flutter — contributing to requirements and delivering cross-platform apps.</li>
               </ul>
@@ -190,56 +255,73 @@
     <!-- Skills -->
     <section class="section" id="skills" aria-labelledby="skills-title">
       <div class="container">
-        <header class="section-head" data-reveal>
-          <p class="kicker">03 — Skills</p>
-          <h2 id="skills-title">Toolbox</h2>
+        <header class="section-head">
+          <p class="kicker" data-reveal>Skills</p>
+          <h2 class="section-title" id="skills-title" data-split>The toolbox</h2>
         </header>
+      </div>
 
-        <ul class="tech-strip" aria-label="Core technologies" data-reveal>
-          <li style="--brand:#02569B"><svg aria-hidden="true"><use href="images/icons.svg#flutter"/></svg><span>Flutter</span></li>
-          <li style="--brand:#0175C2"><svg aria-hidden="true"><use href="images/icons.svg#dart"/></svg><span>Dart</span></li>
-          <li style="--brand:#3DDC84"><svg aria-hidden="true"><use href="images/icons.svg#android"/></svg><span>Android</span></li>
-          <li style="--brand:#7F52FF"><svg aria-hidden="true"><use href="images/icons.svg#kotlin"/></svg><span>Kotlin</span></li>
-          <li style="--brand:#DD2C00"><svg aria-hidden="true"><use href="images/icons.svg#firebase"/></svg><span>Firebase</span></li>
-          <li style="--brand:#FF6C37"><svg aria-hidden="true"><use href="images/icons.svg#postman"/></svg><span>Postman</span></li>
-          <li style="--brand:#F24E1E"><svg aria-hidden="true"><use href="images/icons.svg#figma"/></svg><span>Figma</span></li>
-          <li style="--brand:#F03C2E"><svg aria-hidden="true"><use href="images/icons.svg#git"/></svg><span>Git</span></li>
-          <li style="--brand:#FC6D26"><svg aria-hidden="true"><use href="images/icons.svg#gitlab"/></svg><span>GitLab</span></li>
-          <li style="--brand:#2684FF"><svg aria-hidden="true"><use href="images/icons.svg#jira"/></svg><span>Jira</span></li>
+      <div class="marquee" data-reveal>
+        <ul class="marquee-track" aria-label="Core technologies">
+          <li><svg aria-hidden="true"><use href="images/icons.svg#flutter"/></svg>Flutter</li>
+          <li><svg aria-hidden="true"><use href="images/icons.svg#dart"/></svg>Dart</li>
+          <li><svg aria-hidden="true"><use href="images/icons.svg#android"/></svg>Android</li>
+          <li><svg aria-hidden="true"><use href="images/icons.svg#kotlin"/></svg>Kotlin</li>
+          <li><svg aria-hidden="true"><use href="images/icons.svg#firebase"/></svg>Firebase</li>
+          <li><svg aria-hidden="true"><use href="images/icons.svg#postman"/></svg>Postman</li>
+          <li><svg aria-hidden="true"><use href="images/icons.svg#figma"/></svg>Figma</li>
+          <li><svg aria-hidden="true"><use href="images/icons.svg#git"/></svg>Git</li>
+          <li><svg aria-hidden="true"><use href="images/icons.svg#gitlab"/></svg>GitLab</li>
+          <li><svg aria-hidden="true"><use href="images/icons.svg#jira"/></svg>Jira</li>
         </ul>
+      </div>
 
-        <div class="skills-grid">
-          <article class="card skill-card" data-reveal>
+      <div class="container">
+        <div class="feature-grid">
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#code"/></svg></span>
             <h3>Languages &amp; Frameworks</h3>
-            <ul class="tags"><li>Dart</li><li>Flutter</li><li>Java</li><li>Kotlin</li></ul>
+            <p>Dart · Flutter · Java · Kotlin</p>
           </article>
-          <article class="card skill-card" data-reveal>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#layers"/></svg></span>
             <h3>State Management</h3>
-            <ul class="tags"><li>Riverpod</li><li>Bloc / Cubit</li><li>Provider</li><li>GetX</li></ul>
+            <p>Riverpod · Bloc / Cubit · Provider · GetX</p>
           </article>
-          <article class="card skill-card" data-reveal>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#grid"/></svg></span>
             <h3>Architecture &amp; Patterns</h3>
-            <ul class="tags"><li>Clean Architecture</li><li>MVVM</li><li>SOLID</li><li>Dependency Injection</li></ul>
+            <p>Clean Architecture · MVVM · SOLID · Dependency Injection</p>
           </article>
-          <article class="card skill-card" data-reveal>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#plug"/></svg></span>
             <h3>APIs &amp; Backend</h3>
-            <ul class="tags"><li>RESTful APIs</li><li>Dio</li><li>Postman</li><li>ServiceNow</li></ul>
+            <p>RESTful APIs · Dio · Postman · ServiceNow</p>
           </article>
-          <article class="card skill-card" data-reveal>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#shield"/></svg></span>
             <h3>Security</h3>
-            <ul class="tags"><li>Biometric Auth</li><li>SSL Pinning</li><li>Secure Storage</li><li>Hardening</li></ul>
+            <p>Biometric auth · SSL pinning · Secure storage · Hardening</p>
           </article>
-          <article class="card skill-card" data-reveal>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#database"/></svg></span>
             <h3>Data &amp; Firebase</h3>
-            <ul class="tags"><li>SQLite</li><li>Hive</li><li>Firestore</li><li>Auth</li><li>FCM</li><li>Analytics</li><li>Crashlytics</li></ul>
+            <p>SQLite · Hive · Firestore · Auth · FCM · Analytics · Crashlytics</p>
           </article>
-          <article class="card skill-card" data-reveal>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#flask"/></svg></span>
             <h3>Testing &amp; Quality</h3>
-            <ul class="tags"><li>Unit tests</li><li>Widget tests</li><li>Mockito</li><li>Performance profiling</li></ul>
+            <p>Unit &amp; widget tests · Mockito · Performance profiling</p>
           </article>
-          <article class="card skill-card" data-reveal>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#rocket"/></svg></span>
             <h3>Delivery</h3>
-            <ul class="tags"><li>Git</li><li>Jira</li><li>Figma</li><li>Agile / Scrum</li><li>CI/CD</li><li>Play Store</li><li>App Store</li></ul>
+            <p>Git · Jira · Figma · Agile / Scrum · CI/CD · Play Store · App Store</p>
+          </article>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#award"/></svg></span>
+            <h3>Ways of working</h3>
+            <p>Problem solving · Collaboration · Adaptability · Continuous learning</p>
           </article>
         </div>
       </div>
@@ -248,94 +330,86 @@
     <!-- Projects -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <header class="section-head" data-reveal>
-          <p class="kicker">04 — Projects</p>
-          <h2 id="projects-title">Selected work</h2>
+        <header class="section-head">
+          <p class="kicker" data-reveal>Projects</p>
+          <h2 class="section-title" id="projects-title" data-split>Selected work</h2>
         </header>
 
         <div class="projects-grid">
-          <article class="card project" data-reveal>
-            <div class="project-head">
-              <p class="project-org">NHC</p>
-              <h3>Ahal <span lang="ar" dir="rtl">أهل</span></h3>
-            </div>
+          <article class="project" data-reveal>
+            <p class="project-org">NHC · 2024 — Present</p>
+            <h3>Ahal <span lang="ar" dir="rtl">أهل</span></h3>
             <p>Community &amp; real-estate ecosystem app. Owned high-impact features — maintenance requests, visitor management, virtual identity and event registration — from requirements to release, while improving stability and API reliability.</p>
             <ul class="tags"><li>Flutter</li><li>Provider</li><li>REST</li><li>OneSignal</li></ul>
-            <div class="project-links">
-              <a href="https://apps.apple.com/sa/app/ahal-%D8%A3%D9%87%D9%84/id6471913134" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg> App Store</a>
-            </div>
+            <a class="project-link" href="https://apps.apple.com/sa/app/ahal-%D8%A3%D9%87%D9%84/id6471913134" target="_blank" rel="noopener noreferrer">
+              View on App Store <span class="arrow-circle arrow-circle-sm"><svg aria-hidden="true"><use href="images/icons.svg#arrow-ne"/></svg></span>
+            </a>
           </article>
 
-          <article class="card project" data-reveal>
-            <div class="project-head">
-              <p class="project-org">SDAIA</p>
-              <h3>Deem Mail</h3>
-            </div>
+          <article class="project" data-reveal>
+            <p class="project-org">SDAIA · 2022 — 2024</p>
+            <h3>Deem Mail</h3>
             <p>Enterprise mail client built for maintainability, reliability and security. Scalable Riverpod architecture following SOLID, robust error handling, and remediation of token/session lifecycle, secure storage and log redaction findings.</p>
             <ul class="tags"><li>Flutter</li><li>Riverpod</li><li>REST</li><li>Security</li></ul>
-            <div class="project-links">
-              <a href="https://apps.apple.com/sa/app/deem-mail/id1619319102" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg> App Store</a>
-            </div>
+            <a class="project-link" href="https://apps.apple.com/sa/app/deem-mail/id1619319102" target="_blank" rel="noopener noreferrer">
+              View on App Store <span class="arrow-circle arrow-circle-sm"><svg aria-hidden="true"><use href="images/icons.svg#arrow-ne"/></svg></span>
+            </a>
           </article>
 
-          <article class="card project" data-reveal>
-            <div class="project-head">
-              <p class="project-org">Enterprise</p>
-              <h3>Trasol</h3>
-            </div>
+          <article class="project" data-reveal>
+            <p class="project-org">Enterprise</p>
+            <h3>Trasol</h3>
             <p>Internal correspondence automation app that streamlines workflows across organizational departments, built on a modular architecture with Provider.</p>
             <ul class="tags"><li>Flutter</li><li>Provider</li><li>REST</li></ul>
           </article>
 
-          <article class="card project" data-reveal>
-            <div class="project-head">
-              <p class="project-org">Qatar</p>
-              <h3>NHRC</h3>
-            </div>
+          <article class="project" data-reveal>
+            <p class="project-org">Qatar</p>
+            <h3>NHRC</h3>
             <p>App for the National Human Rights Committee of Qatar. Shipped key features and performance optimizations with efficient GetX state management and REST integration.</p>
             <ul class="tags"><li>Flutter</li><li>GetX</li><li>REST</li></ul>
-            <div class="project-links">
-              <a href="https://www.nhrc-qa.org/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#external"/></svg> Website</a>
-            </div>
+            <a class="project-link" href="https://www.nhrc-qa.org/" target="_blank" rel="noopener noreferrer">
+              Visit website <span class="arrow-circle arrow-circle-sm"><svg aria-hidden="true"><use href="images/icons.svg#arrow-ne"/></svg></span>
+            </a>
           </article>
         </div>
 
-        <div class="more-apps" data-reveal>
-          <h3>More lifestyle &amp; service apps</h3>
+        <div class="more-apps">
+          <h3 class="kicker" data-reveal>More lifestyle &amp; service apps</h3>
           <ul>
-            <li>
+            <li data-reveal>
               <span class="app-name">Photographer</span>
-              <span class="store-links"><a href="https://play.google.com/store/apps/details?id=com.aait.photographer" target="_blank" rel="noopener noreferrer" aria-label="Photographer on Google Play"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#googleplay"/></svg></a></span>
+              <span class="store-links"><a href="https://play.google.com/store/apps/details?id=com.aait.photographer" target="_blank" rel="noopener noreferrer">Google Play</a></span>
             </li>
-            <li>
+            <li data-reveal>
               <span class="app-name">Mashaghel <span lang="ar" dir="rtl">مشاغل</span></span>
               <span class="store-links">
-                <a href="https://apps.apple.com/us/app/id1501068776" target="_blank" rel="noopener noreferrer" aria-label="Mashaghel on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a>
-                <a href="https://play.google.com/store/apps/details?id=com.awammer.mshaghel" target="_blank" rel="noopener noreferrer" aria-label="Mashaghel on Google Play"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#googleplay"/></svg></a>
+                <a href="https://apps.apple.com/us/app/id1501068776" target="_blank" rel="noopener noreferrer">App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.awammer.mshaghel" target="_blank" rel="noopener noreferrer">Google Play</a>
               </span>
             </li>
-            <li>
+            <li data-reveal>
               <span class="app-name">Anayati <span lang="ar" dir="rtl">عنايتي</span></span>
               <span class="store-links">
-                <a href="https://apps.apple.com/us/app/id1493270893" target="_blank" rel="noopener noreferrer" aria-label="Anayati on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a>
-                <a href="https://play.google.com/store/apps/details?id=com.anayati.anayati" target="_blank" rel="noopener noreferrer" aria-label="Anayati on Google Play"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#googleplay"/></svg></a>
+                <a href="https://apps.apple.com/us/app/id1493270893" target="_blank" rel="noopener noreferrer">App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.anayati.anayati" target="_blank" rel="noopener noreferrer">Google Play</a>
               </span>
             </li>
-            <li>
+            <li data-reveal>
               <span class="app-name">Henna</span>
-              <span class="store-links"><a href="https://play.google.com/store/apps/details?id=com.awammer.henna" target="_blank" rel="noopener noreferrer" aria-label="Henna on Google Play"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#googleplay"/></svg></a></span>
+              <span class="store-links"><a href="https://play.google.com/store/apps/details?id=com.awammer.henna" target="_blank" rel="noopener noreferrer">Google Play</a></span>
             </li>
-            <li>
+            <li data-reveal>
               <span class="app-name">Maqasi <span lang="ar" dir="rtl">مقصي</span></span>
-              <span class="store-links"><a href="https://apps.apple.com/us/app/id1520399304" target="_blank" rel="noopener noreferrer" aria-label="Maqasi on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a></span>
+              <span class="store-links"><a href="https://apps.apple.com/us/app/id1520399304" target="_blank" rel="noopener noreferrer">App Store</a></span>
             </li>
-            <li>
+            <li data-reveal>
               <span class="app-name">Tayebatkom <span lang="ar" dir="rtl">طيباتكم</span></span>
-              <span class="store-links"><a href="https://apps.apple.com/us/app/id1537531427" target="_blank" rel="noopener noreferrer" aria-label="Tayebatkom on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a></span>
+              <span class="store-links"><a href="https://apps.apple.com/us/app/id1537531427" target="_blank" rel="noopener noreferrer">App Store</a></span>
             </li>
-            <li>
+            <li data-reveal>
               <span class="app-name">Badaea Altajer <span lang="ar" dir="rtl">بضائع التاجر</span></span>
-              <span class="store-links"><a href="https://apps.apple.com/us/app/id1486897419" target="_blank" rel="noopener noreferrer" aria-label="Badaea Altajer on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a></span>
+              <span class="store-links"><a href="https://apps.apple.com/us/app/id1486897419" target="_blank" rel="noopener noreferrer">App Store</a></span>
             </li>
           </ul>
         </div>
@@ -345,55 +419,61 @@
     <!-- Education -->
     <section class="section" id="education" aria-labelledby="edu-title">
       <div class="container">
-        <header class="section-head" data-reveal>
-          <p class="kicker">05 — Education</p>
-          <h2 id="edu-title">Education &amp; certifications</h2>
+        <header class="section-head">
+          <p class="kicker" data-reveal>Education</p>
+          <h2 class="section-title" id="edu-title" data-split>Education &amp; certifications</h2>
         </header>
-        <div class="edu-grid">
-          <article class="card edu-card" data-reveal>
-            <svg class="icon icon-lg" aria-hidden="true"><use href="images/icons.svg#cap"/></svg>
+        <div class="feature-grid">
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#cap"/></svg></span>
             <h3>B.Sc. Computer Science</h3>
-            <p>Misr Higher Institute for Computers · Mansoura, Egypt</p>
-            <p class="muted">2012 — 2016</p>
+            <p>Misr Higher Institute for Computers · Mansoura, Egypt · 2012 — 2016</p>
           </article>
-          <article class="card edu-card" data-reveal>
-            <svg class="icon icon-lg" aria-hidden="true"><use href="images/icons.svg#award"/></svg>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#award"/></svg></span>
             <h3>Professional Scrum Master I (PSM I)</h3>
-            <p>Scrum.org</p>
-            <a class="text-link" href="https://www.credly.com/badges/8d8ecc9e-17d3-445d-b06e-a9c8f010a96c/public_url" target="_blank" rel="noopener noreferrer">Verify on Credly <svg class="icon" aria-hidden="true"><use href="images/icons.svg#external"/></svg></a>
+            <p>Scrum.org · <a class="inline-link" href="https://www.credly.com/badges/8d8ecc9e-17d3-445d-b06e-a9c8f010a96c/public_url" target="_blank" rel="noopener noreferrer">Verify on Credly</a></p>
           </article>
-          <article class="card edu-card" data-reveal>
-            <svg class="icon icon-lg" aria-hidden="true"><use href="images/icons.svg#globe"/></svg>
+          <article class="feature" data-reveal>
+            <span class="feature-icon"><svg aria-hidden="true"><use href="images/icons.svg#globe"/></svg></span>
             <h3>Languages</h3>
-            <p>Arabic — Native</p>
-            <p>English — Advanced</p>
+            <p>Arabic — Native · English — Advanced</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <div class="contact-panel" data-reveal>
-          <p class="kicker">06 — Contact</p>
-          <h2 id="contact-title">Let's build something great.</h2>
-          <p class="lead">Have a mobile project, a role, or just want to talk Flutter? My inbox is open.</p>
-          <a class="btn btn-primary btn-lg" href="mailto:aliradwan7789@gmail.com">aliradwan7789@gmail.com</a>
-          <ul class="contact-list">
-            <li><a href="tel:+966567986028"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#phone"/></svg> +966 56 798 6028</a></li>
-            <li><a href="https://www.linkedin.com/in/alimohamedradwan/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a></li>
-            <li><a href="https://github.com/AliRadwan" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a></li>
-            <li><a href="https://gitlab.com/AliRadwan" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#gitlab"/></svg> GitLab</a></li>
-          </ul>
+    <!-- Contact: inverse cream band -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <p class="kicker" data-reveal>Contact</p>
+        <h2 class="contact-title" id="contact-title" data-split>Let's build something great together.</h2>
+        <p class="contact-sub" data-reveal>Have a mobile project, a role, or just want to talk Flutter? My inbox is open.</p>
+
+        <div class="contact-actions" data-reveal>
+          <a class="btn btn-dark btn-lg" href="mailto:aliradwan7789@gmail.com">aliradwan7789@gmail.com</a>
+          <button class="btn btn-outline-dark copy-btn" type="button" data-copy="aliradwan7789@gmail.com">
+            <svg class="icon icon-copy" aria-hidden="true"><use href="images/icons.svg#copy"/></svg>
+            <svg class="icon icon-check" aria-hidden="true"><use href="images/icons.svg#check"/></svg>
+            <span class="copy-label">Copy email</span>
+          </button>
+          <span class="visually-hidden" role="status" aria-live="polite" id="copy-status"></span>
         </div>
+
+        <ul class="contact-list" data-reveal>
+          <li><a href="tel:+966567986028"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#phone"/></svg> +966 56 798 6028</a></li>
+          <li><a href="https://www.linkedin.com/in/alimohamedradwan/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a></li>
+          <li><a href="https://github.com/AliRadwan" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a></li>
+          <li><a href="https://gitlab.com/AliRadwan" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#gitlab"/></svg> GitLab</a></li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year">2026</span> Ali Radwan. Built with plain HTML, CSS &amp; JS.</p>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Ali Radwan · Riyadh, Saudi Arabia</p>
+      <a class="arrow-circle arrow-circle-outline back-top" href="#top" aria-label="Back to top"><svg aria-hidden="true"><use href="images/icons.svg#arrow-up"/></svg></a>
     </div>
   </footer>
 </body>
