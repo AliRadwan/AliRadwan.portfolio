@@ -30,7 +30,7 @@ Dart · Flutter · Java · Kotlin · Riverpod · Bloc/Cubit · Provider · GetX 
 ---
 
 ### About this site
-Plain HTML, CSS and a small ES module. No framework, no build step, served directly by GitHub Pages.
+Plain HTML, CSS and a small script. No framework, no build step, served directly by GitHub Pages.
 
 ```
 index.html        # all content, semantic sections
