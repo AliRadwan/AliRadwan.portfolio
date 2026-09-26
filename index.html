@@ -1,151 +1,400 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Radwan | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ali Radwan — Senior Flutter Developer</title>
+  <meta name="description" content="Ali Radwan is a Senior Flutter Developer in Riyadh with 6+ years building secure, high-performance Android & iOS apps for enterprises like NHC and SDAIA.">
+  <meta name="author" content="Ali Radwan">
+  <link rel="canonical" href="https://aliradwan.github.io/AliRadwan.portfolio/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ali Radwan — Senior Flutter Developer">
+  <meta property="og:description" content="6+ years building secure, high-performance Android & iOS apps with Flutter.">
+  <meta property="og:url" content="https://aliradwan.github.io/AliRadwan.portfolio/">
+  <meta property="og:image" content="https://aliradwan.github.io/AliRadwan.portfolio/images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="theme-color" content="#0e0f12" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <script>
+    // Apply the saved/system theme before first paint to avoid a flash.
+    (function () {
+      var d = document.documentElement, t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      d.dataset.theme = t;
+      d.classList.add('js');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="preload" as="image" href="images/profile-400.webp" imagesrcset="images/profile-400.webp 400w, images/profile-800.webp 800w" imagesizes="(min-width: 900px) 360px, 240px">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>Ali Radwan</h1>
-            <img src="images/profile_image_converted.png" alt="Ali Radwan Profile Picture" style="width:150px; height:150px; border-radius:50%;">
-            <p>Building Innovative Mobile Experiences</p>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#achievements">Achievements</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Passionate and highly skilled Flutter Developer with over 4 years of experience in building robust, user-friendly mobile applications. Adept at leveraging the Flutter framework to create scalable, cross-platform apps for Android and iOS. Proven track record of delivering high-quality software solutions, collaborating with teams, and continuously learning to stay at the forefront of mobile development technologies.</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Ali Radwan — home">AR<span>.</span></a>
+
+      <nav class="nav" id="nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle color theme">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="images/icons.svg#sun"/></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="images/icons.svg#moon"/></svg>
+        </button>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Open menu">
+          <svg class="icon icon-menu" aria-hidden="true"><use href="images/icons.svg#menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="images/icons.svg#close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#pin"/></svg> Riyadh, Saudi Arabia · Open to opportunities</p>
+          <h1>Hi, I'm Ali Radwan.<br><span class="accent">Senior Flutter Developer.</span></h1>
+          <p class="lead">I build secure, high-performance Android &amp; iOS apps for enterprise organizations — from architecture to App Store release.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Get in touch <svg class="icon" aria-hidden="true"><use href="images/icons.svg#arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#projects">View projects</a>
+          </div>
+          <ul class="social" aria-label="Profiles">
+            <li><a href="https://github.com/AliRadwan" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg></a></li>
+            <li><a href="https://gitlab.com/AliRadwan" target="_blank" rel="noopener noreferrer" aria-label="GitLab"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#gitlab"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/alimohamedradwan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg></a></li>
+            <li><a href="mailto:aliradwan7789@gmail.com" aria-label="Email"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#mail"/></svg></a></li>
+          </ul>
+        </div>
+
+        <div class="hero-photo">
+          <picture>
+            <source type="image/webp" srcset="images/profile-400.webp 400w, images/profile-800.webp 800w" sizes="(min-width: 900px) 360px, 240px">
+            <img src="images/profile-800.jpg" alt="Portrait of Ali Radwan" width="800" height="800" fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+      </div>
     </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        
-        <!-- Programming Languages -->
-        <div class="skill-category">
-            <h3>Programming Languages</h3>
-            <p>Flutter Framework, Dart, Java</p>
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">01 — About</p>
+          <h2 id="about-title">Engineering apps people rely on</h2>
+        </header>
+        <div class="about-grid">
+          <div class="prose" data-reveal>
+            <p>Senior Flutter Developer with <strong>6+ years</strong> of experience building secure, high-performance Android and iOS applications for enterprise organizations, including <strong>NHC</strong> and <strong>SDAIA</strong>.</p>
+            <p>Strong expertise in Clean Architecture, Riverpod / Bloc, RESTful APIs and performance optimization, with full ownership of production releases. I work closely with backend, QA and security teams to ship stable, scalable solutions — and to find and fix critical vulnerabilities before they reach users.</p>
+          </div>
+          <dl class="stats" data-reveal>
+            <div><dt>Years of experience</dt><dd>6+</dd></div>
+            <div><dt>Companies</dt><dd>5</dd></div>
+            <div><dt>Apps shipped</dt><dd>10+</dd></div>
+            <div><dt>Platforms</dt><dd>iOS&nbsp;+&nbsp;Android</dd></div>
+          </dl>
         </div>
-    
-        <!-- OOP Principles -->
-        <div class="skill-category">
-            <h3>OOP Principles</h3>
-            <p>Abstract, Inheritance, Polymorphism, Encapsulation, SOLID Principles</p>
-        </div>
-    
-        <!-- State Management -->
-        <div class="skill-category">
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience" aria-labelledby="exp-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">02 — Experience</p>
+          <h2 id="exp-title">Where I've worked</h2>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline-item" data-reveal>
+            <div class="timeline-meta"><time>2024 — Present</time><span>Riyadh, KSA</span></div>
+            <div class="card">
+              <h3>Senior Flutter Developer <span class="at">@ <a href="https://nhc.sa/en/" target="_blank" rel="noopener noreferrer">National Housing Company (NHC)</a></span></h3>
+              <ul class="bullets">
+                <li>Own end-to-end delivery of the <strong>Ahal</strong> and <strong>Technician</strong> apps, shipping 4+ production releases and improving overall stability.</li>
+                <li>Designed feature modules for visitor management, maintenance requests, virtual identity and event registration using Clean Architecture.</li>
+                <li>Integrated ServiceNow REST APIs, resolved security findings with the security team and improved UI performance through profiling and rebuild optimization.</li>
+              </ul>
+              <ul class="tags"><li>Flutter</li><li>Riverpod</li><li>Bloc</li><li>Provider</li><li>ServiceNow</li><li>Clean Architecture</li></ul>
+            </div>
+          </li>
+
+          <li class="timeline-item" data-reveal>
+            <div class="timeline-meta"><time>2022 — 2024</time><span>Riyadh, KSA</span></div>
+            <div class="card">
+              <h3>Senior Flutter Developer <span class="at">@ Saudi Data &amp; AI Authority (SDAIA)</span></h3>
+              <ul class="bullets">
+                <li>Built and maintained <strong>Deem Mail</strong>, an enterprise-grade mail client for Android and iOS.</li>
+                <li>Implemented scalable state management with Riverpod and Bloc in a modular architecture.</li>
+                <li>Hardened the app with secure storage and API hardening; improved observability with Crashlytics and structured logging, reducing recurring incidents.</li>
+              </ul>
+              <ul class="tags"><li>Flutter</li><li>Riverpod</li><li>Bloc</li><li>Crashlytics</li><li>Security</li></ul>
+            </div>
+          </li>
+
+          <li class="timeline-item" data-reveal>
+            <div class="timeline-meta"><time>2020 — 2022</time><span>Remote</span></div>
+            <div class="card">
+              <h3>Flutter Developer <span class="at">@ FutureTech</span></h3>
+              <ul class="bullets">
+                <li>Developed a cross-platform messaging app with PDF generation and dashboard charts.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline-item" data-reveal>
+            <div class="timeline-meta"><time>2019 — 2020</time><span>Remote</span></div>
+            <div class="card">
+              <h3>Flutter Developer <span class="at">@ Tekamy</span></h3>
+              <ul class="bullets">
+                <li>Built iOS and Android apps focused on performance and UI responsiveness for complex screens, using GetX.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline-item" data-reveal>
+            <div class="timeline-meta"><time>2018 — 2019</time><span>Mansoura, Egypt</span></div>
+            <div class="card">
+              <h3>Mobile App Developer <span class="at">@ Aait</span></h3>
+              <ul class="bullets">
+                <li>Started in native Android (Java), then moved to Flutter — contributing to requirements and delivering cross-platform apps.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">03 — Skills</p>
+          <h2 id="skills-title">Toolbox</h2>
+        </header>
+
+        <ul class="tech-strip" aria-label="Core technologies" data-reveal>
+          <li style="--brand:#02569B"><svg aria-hidden="true"><use href="images/icons.svg#flutter"/></svg><span>Flutter</span></li>
+          <li style="--brand:#0175C2"><svg aria-hidden="true"><use href="images/icons.svg#dart"/></svg><span>Dart</span></li>
+          <li style="--brand:#3DDC84"><svg aria-hidden="true"><use href="images/icons.svg#android"/></svg><span>Android</span></li>
+          <li style="--brand:#7F52FF"><svg aria-hidden="true"><use href="images/icons.svg#kotlin"/></svg><span>Kotlin</span></li>
+          <li style="--brand:#DD2C00"><svg aria-hidden="true"><use href="images/icons.svg#firebase"/></svg><span>Firebase</span></li>
+          <li style="--brand:#FF6C37"><svg aria-hidden="true"><use href="images/icons.svg#postman"/></svg><span>Postman</span></li>
+          <li style="--brand:#F24E1E"><svg aria-hidden="true"><use href="images/icons.svg#figma"/></svg><span>Figma</span></li>
+          <li style="--brand:#F03C2E"><svg aria-hidden="true"><use href="images/icons.svg#git"/></svg><span>Git</span></li>
+          <li style="--brand:#FC6D26"><svg aria-hidden="true"><use href="images/icons.svg#gitlab"/></svg><span>GitLab</span></li>
+          <li style="--brand:#2684FF"><svg aria-hidden="true"><use href="images/icons.svg#jira"/></svg><span>Jira</span></li>
+        </ul>
+
+        <div class="skills-grid">
+          <article class="card skill-card" data-reveal>
+            <h3>Languages &amp; Frameworks</h3>
+            <ul class="tags"><li>Dart</li><li>Flutter</li><li>Java</li><li>Kotlin</li></ul>
+          </article>
+          <article class="card skill-card" data-reveal>
             <h3>State Management</h3>
-            <p>Riverpod, Provider, GetX</p>
+            <ul class="tags"><li>Riverpod</li><li>Bloc / Cubit</li><li>Provider</li><li>GetX</li></ul>
+          </article>
+          <article class="card skill-card" data-reveal>
+            <h3>Architecture &amp; Patterns</h3>
+            <ul class="tags"><li>Clean Architecture</li><li>MVVM</li><li>SOLID</li><li>Dependency Injection</li></ul>
+          </article>
+          <article class="card skill-card" data-reveal>
+            <h3>APIs &amp; Backend</h3>
+            <ul class="tags"><li>RESTful APIs</li><li>Dio</li><li>Postman</li><li>ServiceNow</li></ul>
+          </article>
+          <article class="card skill-card" data-reveal>
+            <h3>Security</h3>
+            <ul class="tags"><li>Biometric Auth</li><li>SSL Pinning</li><li>Secure Storage</li><li>Hardening</li></ul>
+          </article>
+          <article class="card skill-card" data-reveal>
+            <h3>Data &amp; Firebase</h3>
+            <ul class="tags"><li>SQLite</li><li>Hive</li><li>Firestore</li><li>Auth</li><li>FCM</li><li>Analytics</li><li>Crashlytics</li></ul>
+          </article>
+          <article class="card skill-card" data-reveal>
+            <h3>Testing &amp; Quality</h3>
+            <ul class="tags"><li>Unit tests</li><li>Widget tests</li><li>Mockito</li><li>Performance profiling</li></ul>
+          </article>
+          <article class="card skill-card" data-reveal>
+            <h3>Delivery</h3>
+            <ul class="tags"><li>Git</li><li>Jira</li><li>Figma</li><li>Agile / Scrum</li><li>CI/CD</li><li>Play Store</li><li>App Store</li></ul>
+          </article>
         </div>
-    
-        <!-- API Handling -->
-        <div class="skill-category">
-            <h3>API Handling</h3>
-            <p>REST APIs, HTTP, Dio, Postman</p>
-        </div>
-    
-        <!-- Firebase Services -->
-        <div class="skill-category">
-            <h3>Firebase Services</h3>
-            <p>Authentication, Cloud Messaging, Firestore, Analytics, Crashlytics</p>
-        </div>
-    
-        <!-- Other sections for App Performance, Design Patterns, etc. -->
-    </section>
-    
-    <!-- Technology Icons Section -->
-    <section id="tech-icons" class="tech-icons-section">
-        <h2>Technologies I Work With</h2>
-        <div class="tech-icons">
-            <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="Flutter" class="tech-icon">
-            <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="Dart" class="tech-icon">
-            <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="Firebase" class="tech-icon">
-            <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" class="tech-icon">
-            <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg" alt="Figma" class="tech-icon">
-            <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" alt="GitHub" class="tech-icon">
-            <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="GitLab" class="tech-icon">
-            <img src="https://www.vectorlogo.zone/logos/atlassian_jira/atlassian_jira-icon.svg" alt="Jira" class="tech-icon">
-
-            <!-- Add more tech icons as needed -->
-        </div>
-    </section>
-    
-    <section id="projects">
-        <h2>Projects</h2>
-
-        <div class="project">
-            <h3>Deem Mail</h3>
-            <p>Developed a comprehensive mail client application intended to rival major mail clients such as Exchange and Gmail. Built with a strong emphasis on maintainability using Riverpod for state management and adhering to SOLID principles.</p>
-            <ul>
-                <li><strong>Technologies Used:</strong> Flutter, Riverpod, REST APIs, GitLab, Jira, YouTrack</li>
-                <li>Collaborated on structuring the app using best practices in Flutter development</li>
-                <li>Ensured efficient state management with Riverpod, leading to a smooth and responsive user experience</li>
-                <li>Addressed and mitigated security vulnerabilities within the app</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>Trasol</h3>
-            <p>Created a Flutter-based app to automate internal correspondence processes across organizational departments.</p>
-            <ul>
-                <li><strong>Technologies Used:</strong> Flutter, Provider, REST APIs</li>
-                <li>Implemented state management using Provider for modular and maintainable code</li>
-                <li>Integrated backend services with REST APIs for efficient data handling</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>NHRC (National Human Rights Commission of Qatar)</h3>
-            <p>Contributed to the development of an app promoting and protecting human rights.</p>
-            <ul>
-                <li><strong>Technologies Used:</strong> Flutter, GetX, REST APIs</li>
-                <li>Leveraged GetX for state management, optimizing performance and user experience</li>
-                <li>Ensured smooth data flow and integration with backend systems via REST APIs</li>
-            </ul>
-        </div>
-
-        <div class="project">
-            <h3>Other E-commerce & Lifestyle Apps</h3>
-            <ul>
-                <li>Syartk: Designed an app for buying and selling cars and accessories in Kuwait</li>
-                <li>Dokkani: Created a social e-commerce application with Flutter, using GetX for state management</li>
-                <li>Photographer: Developed a photography service app with features like FCM chat, video playback, online payments, and animations</li>
-            </ul>
-        </div>
+      </div>
     </section>
 
-    <section id="achievements">
-        <h2>Achievements</h2>
-        <p>Android Basics Nanodegree by Google</p>
-        <p>The Complete Flutter Development Bootcamp with Dart | Udemy</p>
+    <!-- Projects -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">04 — Projects</p>
+          <h2 id="projects-title">Selected work</h2>
+        </header>
+
+        <div class="projects-grid">
+          <article class="card project" data-reveal>
+            <div class="project-head">
+              <p class="project-org">NHC</p>
+              <h3>Ahal <span lang="ar" dir="rtl">أهل</span></h3>
+            </div>
+            <p>Community &amp; real-estate ecosystem app. Owned high-impact features — maintenance requests, visitor management, virtual identity and event registration — from requirements to release, while improving stability and API reliability.</p>
+            <ul class="tags"><li>Flutter</li><li>Provider</li><li>REST</li><li>OneSignal</li></ul>
+            <div class="project-links">
+              <a href="https://apps.apple.com/sa/app/ahal-%D8%A3%D9%87%D9%84/id6471913134" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg> App Store</a>
+            </div>
+          </article>
+
+          <article class="card project" data-reveal>
+            <div class="project-head">
+              <p class="project-org">SDAIA</p>
+              <h3>Deem Mail</h3>
+            </div>
+            <p>Enterprise mail client built for maintainability, reliability and security. Scalable Riverpod architecture following SOLID, robust error handling, and remediation of token/session lifecycle, secure storage and log redaction findings.</p>
+            <ul class="tags"><li>Flutter</li><li>Riverpod</li><li>REST</li><li>Security</li></ul>
+            <div class="project-links">
+              <a href="https://apps.apple.com/sa/app/deem-mail/id1619319102" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg> App Store</a>
+            </div>
+          </article>
+
+          <article class="card project" data-reveal>
+            <div class="project-head">
+              <p class="project-org">Enterprise</p>
+              <h3>Trasol</h3>
+            </div>
+            <p>Internal correspondence automation app that streamlines workflows across organizational departments, built on a modular architecture with Provider.</p>
+            <ul class="tags"><li>Flutter</li><li>Provider</li><li>REST</li></ul>
+          </article>
+
+          <article class="card project" data-reveal>
+            <div class="project-head">
+              <p class="project-org">Qatar</p>
+              <h3>NHRC</h3>
+            </div>
+            <p>App for the National Human Rights Committee of Qatar. Shipped key features and performance optimizations with efficient GetX state management and REST integration.</p>
+            <ul class="tags"><li>Flutter</li><li>GetX</li><li>REST</li></ul>
+            <div class="project-links">
+              <a href="https://www.nhrc-qa.org/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#external"/></svg> Website</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="more-apps" data-reveal>
+          <h3>More lifestyle &amp; service apps</h3>
+          <ul>
+            <li>
+              <span class="app-name">Photographer</span>
+              <span class="store-links"><a href="https://play.google.com/store/apps/details?id=com.aait.photographer" target="_blank" rel="noopener noreferrer" aria-label="Photographer on Google Play"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#googleplay"/></svg></a></span>
+            </li>
+            <li>
+              <span class="app-name">Mashaghel <span lang="ar" dir="rtl">مشاغل</span></span>
+              <span class="store-links">
+                <a href="https://apps.apple.com/us/app/id1501068776" target="_blank" rel="noopener noreferrer" aria-label="Mashaghel on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a>
+                <a href="https://play.google.com/store/apps/details?id=com.awammer.mshaghel" target="_blank" rel="noopener noreferrer" aria-label="Mashaghel on Google Play"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#googleplay"/></svg></a>
+              </span>
+            </li>
+            <li>
+              <span class="app-name">Anayati <span lang="ar" dir="rtl">عنايتي</span></span>
+              <span class="store-links">
+                <a href="https://apps.apple.com/us/app/id1493270893" target="_blank" rel="noopener noreferrer" aria-label="Anayati on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a>
+                <a href="https://play.google.com/store/apps/details?id=com.anayati.anayati" target="_blank" rel="noopener noreferrer" aria-label="Anayati on Google Play"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#googleplay"/></svg></a>
+              </span>
+            </li>
+            <li>
+              <span class="app-name">Henna</span>
+              <span class="store-links"><a href="https://play.google.com/store/apps/details?id=com.awammer.henna" target="_blank" rel="noopener noreferrer" aria-label="Henna on Google Play"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#googleplay"/></svg></a></span>
+            </li>
+            <li>
+              <span class="app-name">Maqasi <span lang="ar" dir="rtl">مقصي</span></span>
+              <span class="store-links"><a href="https://apps.apple.com/us/app/id1520399304" target="_blank" rel="noopener noreferrer" aria-label="Maqasi on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a></span>
+            </li>
+            <li>
+              <span class="app-name">Tayebatkom <span lang="ar" dir="rtl">طيباتكم</span></span>
+              <span class="store-links"><a href="https://apps.apple.com/us/app/id1537531427" target="_blank" rel="noopener noreferrer" aria-label="Tayebatkom on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a></span>
+            </li>
+            <li>
+              <span class="app-name">Badaea Altajer <span lang="ar" dir="rtl">بضائع التاجر</span></span>
+              <span class="store-links"><a href="https://apps.apple.com/us/app/id1486897419" target="_blank" rel="noopener noreferrer" aria-label="Badaea Altajer on the App Store"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#appstore"/></svg></a></span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:aliradwan7789@gmail.com">aliradwan7789@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/ali-radwan-19731086/" target="_blank">LinkedIn Profile</a></p>
-        <p>GitHub: <a href="https://github.com/AliRadwan" target="_blank">GitHub Profile</a></p>
-        <p>Phone: <a href="tel:+966567986028">+966 56 798 6028</a></p>
+    <!-- Education -->
+    <section class="section" id="education" aria-labelledby="edu-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">05 — Education</p>
+          <h2 id="edu-title">Education &amp; certifications</h2>
+        </header>
+        <div class="edu-grid">
+          <article class="card edu-card" data-reveal>
+            <svg class="icon icon-lg" aria-hidden="true"><use href="images/icons.svg#cap"/></svg>
+            <h3>B.Sc. Computer Science</h3>
+            <p>Misr Higher Institute for Computers · Mansoura, Egypt</p>
+            <p class="muted">2012 — 2016</p>
+          </article>
+          <article class="card edu-card" data-reveal>
+            <svg class="icon icon-lg" aria-hidden="true"><use href="images/icons.svg#award"/></svg>
+            <h3>Professional Scrum Master I (PSM I)</h3>
+            <p>Scrum.org</p>
+            <a class="text-link" href="https://www.credly.com/badges/8d8ecc9e-17d3-445d-b06e-a9c8f010a96c/public_url" target="_blank" rel="noopener noreferrer">Verify on Credly <svg class="icon" aria-hidden="true"><use href="images/icons.svg#external"/></svg></a>
+          </article>
+          <article class="card edu-card" data-reveal>
+            <svg class="icon icon-lg" aria-hidden="true"><use href="images/icons.svg#globe"/></svg>
+            <h3>Languages</h3>
+            <p>Arabic — Native</p>
+            <p>English — Advanced</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Ali Radwan. All rights reserved.</p>
-    </footer>
+    <!-- Contact -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-panel" data-reveal>
+          <p class="kicker">06 — Contact</p>
+          <h2 id="contact-title">Let's build something great.</h2>
+          <p class="lead">Have a mobile project, a role, or just want to talk Flutter? My inbox is open.</p>
+          <a class="btn btn-primary btn-lg" href="mailto:aliradwan7789@gmail.com">aliradwan7789@gmail.com</a>
+          <ul class="contact-list">
+            <li><a href="tel:+966567986028"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#phone"/></svg> +966 56 798 6028</a></li>
+            <li><a href="https://www.linkedin.com/in/alimohamedradwan/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#linkedin"/></svg> LinkedIn</a></li>
+            <li><a href="https://github.com/AliRadwan" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#github"/></svg> GitHub</a></li>
+            <li><a href="https://gitlab.com/AliRadwan" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="images/icons.svg#gitlab"/></svg> GitLab</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script src="script.js"></script>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year">2026</span> Ali Radwan. Built with plain HTML, CSS &amp; JS.</p>
+    </div>
+  </footer>
 </body>
 </html>

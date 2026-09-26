@@ -1,47 +1,42 @@
-# Ali Radwan
+# Ali Radwan — Portfolio
 
-**Mobile Application Developer | Flutter Expert**
+**Senior Flutter Developer | Mobile Engineer (Android & iOS)** · Riyadh, Saudi Arabia
 
-I have 5 years of experience in building mobile applications, specializing in **Flutter** and **Android Native** development. I’m passionate about creating high-performance, user-centric apps. Currently, I’m working at **SDAIA** to improve user experience and performance for mobile solutions.
+🌐 **Live:** https://aliradwan.github.io/AliRadwan.portfolio/
 
----
+Senior Flutter Developer with 6+ years of experience building secure, high-performance Android and iOS applications for enterprise organizations, including **NHC** and **SDAIA**. Strong expertise in Clean Architecture, Riverpod / Bloc, RESTful APIs and performance optimization, with full ownership of production releases.
 
-## Skills 🚀
-- 🔧 **Languages:** Dart, Java, Kotlin
-- 📱 **Mobile Development:** Flutter, Android Native
-- 🛠️ **Tools:** Firebase, SQLite, RESTful APIs
-- 🔄 **Version Control:** Git, GitHub
+## Experience
+| Role | Company | Years |
+| --- | --- | --- |
+| Senior Flutter Developer | National Housing Company (NHC) | 2024 – Present |
+| Senior Flutter Developer | Saudi Data & AI Authority (SDAIA) | 2022 – 2024 |
+| Flutter Developer | FutureTech (Remote) | 2020 – 2022 |
+| Flutter Developer | Tekamy (Remote) | 2019 – 2020 |
+| Mobile App Developer | Aait | 2018 – 2019 |
 
----
+## Selected projects
+- **Ahal** (NHC): community & real-estate ecosystem app. [App Store](https://apps.apple.com/sa/app/ahal-%D8%A3%D9%87%D9%84/id6471913134)
+- **Deem Mail** (SDAIA): enterprise mail client. [App Store](https://apps.apple.com/sa/app/deem-mail/id1619319102)
+- **Trasol**: internal correspondence automation
+- **NHRC Qatar**: human rights app
 
-## Work Experience 💼
-| Job Title                         | Company                               | Duration          |
-| ---------------------------------- | ------------------------------------- | ----------------- |
-| **Mobile Application Developer**   | Saudi Authority for Data & AI (SDAIA) | 2022 - Present    |
-| **Flutter Developer**              | FutureTech                            | 2020 - 2022       |
-| **Flutter Developer**              | Tekamy                                | 2019 - 2020       |
-| **Android Developer**              | aait                                  | 2018 - 2019       |
+## Skills
+Dart · Flutter · Java · Kotlin · Riverpod · Bloc/Cubit · Provider · GetX · Clean Architecture · MVVM · SOLID · REST/Dio · Firebase · SQLite/Hive · SSL Pinning · Secure Storage · Unit/Widget tests · CI/CD
 
----
-
-## Projects 🛠️
-### [Deem Mail](https://github.com/yourusername/DeemMail)
-A mail client similar to Gmail, focused on performance and user-friendly features.
-
-### [Multiplayer Game](https://github.com/yourusername/MultiplayerGame)
-Developed a real-time multiplayer game using Photon and Unity.
-
-### [Flutter Testing with Sentry](https://github.com/yourusername/SentryTesting)
-Tested error tracking and performance monitoring using Sentry in Flutter applications.
+## Contact
+[Email](mailto:aliradwan7789@gmail.com) · [LinkedIn](https://www.linkedin.com/in/alimohamedradwan/) · [GitHub](https://github.com/AliRadwan) · [GitLab](https://gitlab.com/AliRadwan)
 
 ---
 
-## Education 🎓
-- **Bachelor's Degree in Computer Science**, Misr Higher Institute for Computers, Mansoura, Egypt — *2012-2016*
+### About this site
+Plain HTML, CSS and a small ES module. No framework, no build step, served directly by GitHub Pages.
 
----
+```
+index.html        # all content, semantic sections
+css/style.css     # design tokens (dark + light), components, responsive rules
+js/main.js        # theme toggle, mobile nav, reveal-on-scroll, scroll-spy
+images/           # optimized WebP/JPEG portrait, OG image, SVG icon sprite
+```
 
-## Contact 📞
-- Email: [aliradwan7789@gmail.com](mailto:aliradwan7789@gmail.com)
-- LinkedIn: [Ali Radwan](https://www.linkedin.com/in/ali-radwan-%F0%9F%87%B5%F0%9F%87%B8-19731086/)
-- **Portfolio**: [Ali Radwan Portfolio](https://aliradwan.github.io/AliRadwan.portfolio/)
+Run locally: `python3 -m http.server` and open http://localhost:8000.
