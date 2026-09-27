@@ -25,7 +25,7 @@ Senior Flutter Developer with 6+ years of experience building secure, high-perfo
 Dart · Flutter · Java · Kotlin · Riverpod · Bloc/Cubit · Provider · GetX · Clean Architecture · MVVM · SOLID · REST/Dio · Firebase · SQLite/Hive · SSL Pinning · Secure Storage · Unit/Widget tests · CI/CD
 
 ## Contact
-[Email](mailto:aliradwan7789@gmail.com) · [LinkedIn](https://www.linkedin.com/in/alimohamedradwan/) · [GitHub](https://github.com/AliRadwan) · [GitLab](https://gitlab.com/AliRadwan)
+[Email](mailto:aliradwandev@gmail.com) · [LinkedIn](https://www.linkedin.com/in/alimohamedradwan/) · [GitHub](https://github.com/AliRadwan) · [GitLab](https://gitlab.com/AliRadwan)
 
 ---
 
