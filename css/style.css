@@ -402,31 +402,66 @@ section[id] { scroll-margin-top: var(--header-h); }
 .prose { margin-top: 32px; max-width: 34rem; color: var(--sand); font-size: 1.0625rem; }
 .prose p + p { margin-top: 16px; }
 
-.dial-wrap { display: grid; gap: 28px; justify-items: center; }
-.dial { position: relative; width: min(100%, 360px); aspect-ratio: 1; }
-.dial svg { width: 100%; height: 100%; overflow: visible; }
-.dial-dots circle { fill: var(--cream); }
-.dial-dots circle.yr { fill: var(--amber); }
-.dial-hand, .dial-pivot { transform-origin: 100px 16px; }
-.dial-hand { stroke: var(--cream); stroke-width: 1; stroke-linecap: round; }
-.dial-pivot { fill: var(--amber); }
-.dial-readout {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  padding-top: 28px;
-  pointer-events: none;
-}
-.dial-num {
+.years-wrap { display: grid; gap: 28px; width: 100%; }
+.years { --name-w: 5.75rem; --when-w: 3.25rem; --col-gap: 14px; }
+.years-head { display: flex; align-items: flex-end; gap: 16px; margin-bottom: 24px; }
+.years-num {
   font-size: clamp(3.5rem, 2.6rem + 3vw, 4.3rem);
   font-weight: 500;
-  line-height: 1;
+  line-height: 0.85;
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
 }
-.dial-label { margin-top: 6px; font-size: 0.8125rem; color: var(--driftwood); }
+.years-label { font-size: 0.8125rem; line-height: 1.35; color: var(--driftwood); }
+
+.years-chart li {
+  display: grid;
+  grid-template-columns: var(--name-w) 1fr var(--when-w);
+  gap: var(--col-gap);
+  align-items: center;
+  height: 36px;
+}
+.yc-name { font-size: var(--fs-sm); color: var(--sand); white-space: nowrap; }
+.yc-when { font-size: var(--fs-caption); color: var(--driftwood); text-align: right; font-variant-numeric: tabular-nums; }
+/* Year gridlines every two years, continuous across rows */
+.yc-track {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(to right, var(--walnut) 1px, transparent 1px) 0 0 / 25% 100%;
+  box-shadow: inset -1px 0 var(--walnut);
+}
+/* Each role warms from walnut toward amber as the career moves forward */
+.yc-bar {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--s) * 100%);
+  width: calc((var(--e) - var(--s)) * 100%);
+  height: 10px;
+  margin-top: -5px;
+  border-radius: var(--pill);
+  background: color-mix(in oklab, var(--amber) calc(35% + var(--i) * 15%), var(--walnut));
+  transform-origin: left center;
+}
+.is-now .yc-name { color: var(--cream); }
+.is-now .yc-when { color: var(--amber); }
+.is-now .yc-bar { background: var(--amber); }
+.is-now .yc-bar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: ping 2.4s var(--ease-out) infinite;
+}
+
+.years-axis { margin: 10px calc(var(--when-w) + var(--col-gap)) 0 calc(var(--name-w) + var(--col-gap)); }
+.years-axis > div { position: relative; height: 1em; font-size: 0.6875rem; color: var(--driftwood); font-variant-numeric: tabular-nums; }
+.years-axis span { position: absolute; left: calc(var(--p) * 100%); transform: translateX(-50%); }
+.years-axis span:last-child { transform: translateX(-100%); }
 
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; border-top: 1px solid var(--walnut); }
 .stats > div { display: flex; flex-direction: column-reverse; gap: 4px; padding: 16px 12px 0; }
@@ -681,13 +716,6 @@ section[id] { scroll-margin-top: var(--header-h); }
   from { clip-path: inset(100% 0 0 0); transform: scale(1.08); }
   to { clip-path: inset(0 0 0 0); transform: none; }
 }
-@keyframes swing {
-  0% { transform: rotate(38deg); }
-  30% { transform: rotate(-24deg); }
-  55% { transform: rotate(12deg); }
-  78% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
-}
 
 /* --- Hero intro (JS adds .is-loaded once fonts are ready) --- */
 .js .hero-title .line > span,
@@ -724,18 +752,13 @@ section[id] { scroll-margin-top: var(--header-h); }
 .w > span { display: inline-block; transform: translateY(110%); transition: transform 1s var(--ease-expo); transition-delay: calc(var(--wi) * 55ms); }
 .is-visible .w > span { transform: none; }
 
-/* --- Dial --- */
-.js .dial-dots circle {
-  opacity: 0.16;
-  transition: opacity 0.35s var(--ease-out);
-  transition-delay: calc(var(--i) * 18ms + 200ms);
+/* --- Years chart: bars grow in, oldest role first --- */
+.js .yc-bar {
+  transform: scaleX(0);
+  transition: transform 0.9s var(--ease-expo);
+  transition-delay: calc(var(--i) * 130ms + 250ms);
 }
-.js .dial-dots circle.yr { transform-box: fill-box; transform-origin: center; transform: scale(0.4); transition-property: opacity, transform; transition-duration: 0.35s, 0.6s; transition-timing-function: var(--ease-out), var(--ease-expo); }
-.js .dial-hand, .js .dial-pivot { transform: rotate(38deg); }
-.js .is-visible .dial-dots circle { opacity: 0.9; }
-.js .is-visible .dial-dots circle.yr { opacity: 1; transform: none; }
-.js .is-visible .dial-hand,
-.js .is-visible .dial-pivot { animation: swing 2.6s var(--ease-out) 0.3s both; }
+.js .is-visible .yc-bar { transform: none; }
 
 /* --- Timeline rail draws as you scroll (progressive enhancement) --- */
 @supports (animation-timeline: view()) {
@@ -755,9 +778,7 @@ section[id] { scroll-margin-top: var(--header-h); }
   }
   .js [data-reveal] { opacity: 1; transform: none; }
   .w > span { transform: none; }
-  .js .dial-dots circle { opacity: 0.9; }
-  .js .dial-dots circle.yr { opacity: 1; transform: none; }
-  .js .dial-hand, .js .dial-pivot { transform: none; }
+  .js .yc-bar { transform: none; }
   .marquee.is-running .marquee-track { flex-wrap: wrap; max-width: 100%; margin-inline: auto; }
   .marquee-track [aria-hidden="true"] { display: none; }
 }
@@ -802,6 +823,8 @@ section[id] { scroll-margin-top: var(--header-h); }
   .header-cta { display: none; }
   .cta-row .btn { flex: 1 1 auto; }
   .stats dd { font-size: 1.35rem; }
+  .years { --name-w: 5.25rem; --when-w: 0px; --col-gap: 12px; }
+  .yc-when > [aria-hidden] { display: none; }
   .marquee-track li { padding: 18px 24px; font-size: 1.05rem; }
   .contact-actions .btn { flex: 1 1 100%; }
 }
