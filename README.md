@@ -20,6 +20,8 @@ Senior Flutter Developer with 6+ years of experience building secure, high-perfo
 - **Deem Mail** (SDAIA): enterprise mail client. [App Store](https://apps.apple.com/sa/app/deem-mail/id1619319102)
 - **Trasol**: internal correspondence automation
 - **NHRC Qatar**: human rights app
+- **Modeer** (NHC): three-persona home-maintenance dispatch prototype
+- **Alaseel**: Arabic RTL storefront prototype
 
 ## Skills
 Dart · Flutter · Java · Kotlin · Riverpod · Bloc/Cubit · Provider · GetX · Clean Architecture · MVVM · SOLID · REST/Dio · Firebase · SQLite/Hive · SSL Pinning · Secure Storage · Unit/Widget tests · CI/CD
