@@ -787,12 +787,13 @@ section[id] { scroll-margin-top: var(--header-h); }
 @media (max-width: 960px) {
   .hero { min-height: 0; }
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-photo { justify-self: start; max-width: 360px; }
+  .hero-photo { justify-self: center; width: min(360px, 78vw); max-width: 360px; }
   .about-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 820px) {
   .nav-toggle { display: grid; }
+  .icon-btn { width: 44px; height: 44px; }
   .nav {
     position: fixed;
     inset: var(--header-h) 0 auto 0;
